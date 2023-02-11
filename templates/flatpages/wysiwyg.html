@@ -1,0 +1,13 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %} 
+    {{ flatpage.title }} 
+{% endblock title %}
+
+{% block content %}
+    <h1>{{ flatpage.title }}</h1>
+    <p>Задание 4-5.</p>
+    <hr>
+    <p>Использован <a href="https://html5-editor.net">HTML-редактор</a></p>
+    {{ flatpage.content }}
+{% endblock content %}

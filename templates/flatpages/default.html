@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+       
+        <title> {% block title %} {% endblock title %} </title>
+
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+
+        <!-- Core theme CSS (includes Bootstrap) -->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+
+        <!-- Responsive navbar--><!-- Navigation -->
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/home/">Django flatpages</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item active"><a class="nav-link" href="/home/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about/">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contacts/">Contacts</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/photo/">Photo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/wysiwyg/">Wysiwyg-редактор</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+
+        <!-- Page content-->
+        <div class="container">
+            <div class="text-center mt-5">
+              <h3>Бэкенд-разработка на Python и Django</h3>
+              <h4>Модуль D1. Знакомство с Django.</h4>
+              <hr>
+              <div style="text-align: left; margin-left: auto;">       
+                <p>Задания:</p>
+                  <ol>
+                    <li>Создать проект Django.</li>
+                    <li>Добавить в него 3 статические странички, в одной из которых текст полностью будет оформлен курсивом.</li>
+                    <li>На одной из страниц контент повторяется 2 раза без изменения content (два раза прописано { { flatpage.content } }).</li>
+                    <li>Одна из страниц на сайте доступна только админу (только вошедшему пользователю).</li>
+                    <li>На одной из страниц изменены шрифты и размеры текста.</li>
+                    <li>Сайт представляет собой оформленный Bootstrap-шаблон со встроенными пользовательскими данными.</li>
+                    <li>Статические файлы Bootstrap загружаются через теги { % load static % } и { % static % }.</li>
+                  </ol>
+              </div>
+              <hr>
+            </div>
+        
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              {% block content %}
+                {{ flatpage.content }}
+              {% endblock content %}
+
+            </div>
+          </div>
+          
+        </div>
+
+        <!-- Bootstrap core JS-->
+        <script src="{% static 'js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
+
+        <!-- Core theme JS -->
+        <script src="{% static 'js/scripts.js' %}"></script>
+   </body>
+</html>
